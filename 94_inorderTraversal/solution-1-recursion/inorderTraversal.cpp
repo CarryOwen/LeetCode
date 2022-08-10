@@ -18,9 +18,11 @@ public:
         if (!root) {
             return;
         }
+        // res.push_back(root->val);//先序
         inorder(root->left, res);
-        res.push_back(root->val);
+        res.push_back(root->val);//中序
         inorder(root->right, res);
+        // res.push_back(root->val);//后序
     }
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int> res;
