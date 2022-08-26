@@ -1,24 +1,35 @@
 #include"iostream"
 #include "algorithm"
 #include "string"
+#include "vector"
 using namespace std;
-int N_Return(int k)
+
+void Calculate(int amount ,vector<int> & vec)
 {
-    if(k==1||k==2)
-        return 1;
-    return N_Return(k-1)+N_Return(k-2);
-}
-bool cpm(int x ,int y)
-{
-    return x>y?1:0;
+    if(amount==50||amount==70||amount==90)
+    {
+        vec.push_back(1);
+        vec.push_back(amount%50/20);
+    }
+    else
+    {
+        vec.push_back(0);
+        vec.push_back(amount/20);
+    }
 }
 int main() {
-    string a="abcd:efghi:jklmnopq:rstuvwxyz";
-    cout<<a.find(":",0)<<endl;
-
-    auto it=a.begin();
-    a.insert(it+3,'a');
-    cout<<a<<endl;
+    int INDEX_FLAG=1;
+    int bred=1;
+    while(true)
+    {
+        INDEX_FLAG++;
+        bred++;
+        INDEX_FLAG==9?INDEX_FLAG=1:INDEX_FLAG=INDEX_FLAG;
+        cout<<"INDEX_FLAG: "<<INDEX_FLAG<<endl;
+        if(bred==20)
+            break;
+        
+    }
     system("pause");
     return 0;
 }
