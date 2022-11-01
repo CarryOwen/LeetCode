@@ -94,11 +94,30 @@ typedef struct
     uint8_t     msg_type;
     uint8_t     msg_num;
 }gs_msg_header_t;
+#pragma pack(1)
+typedef struct
+{
+    int age;
+    float hacc;
+    float vacc;
+    float sacc;
+    double lon;
+    double lat;
+} stru;
+typedef struct
+{
+    int aaa[1];
+} tests;
+#pragma pack()
+stru st;
 int main()
 {
-    gs_msg_header_t gs_msg_header = {0};
-    int slen = sizeof(source_id);
-    memcpy(gs_msg_header.target_id,source_id,strlen(source_id));
-    int k = strncmp(gs_msg_header.target_id,source_id,strlen(gs_msg_header.target_id));
+    double tmp[2] = {1.2232, 2.32};
+    tests tes={{1}};
+    // tes.aaa = 222;
+
+    // memcpy(&st.age, tmp,8);
+    memcpy(&st.age, tes.aaa,1);
+    printf("%d\n", st.age);
     getchar();
 }
